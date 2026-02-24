@@ -73,7 +73,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} WhiteCoat. All rights reserved. | Designed for NRI Doctors
+            © {new Date().getFullYear()} WhiteCoat. All rights reserved.
           </p>
         </div>
       </div>
