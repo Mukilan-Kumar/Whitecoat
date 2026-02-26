@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Globe, CheckCircle, DollarSign, Calendar } from 'lucide-react';
+import { Globe, CheckCircle, DollarSign } from 'lucide-react';
 
 const WhoCanApply = () => {
   const countries = ['USA', 'UK', 'UAE', 'Canada', 'Australia', 'Singapore', 'Europe'];

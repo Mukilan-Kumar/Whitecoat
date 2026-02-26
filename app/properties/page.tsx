@@ -1,6 +1,5 @@
 'use client';
 
-import { Metadata } from 'next';
 import PropertiesGrid from '@/components/properties/PropertiesGrid';
 import PropertyFilters from '@/components/properties/PropertyFilters';
 import { useState } from 'react';

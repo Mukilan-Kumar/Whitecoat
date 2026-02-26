@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FileText, User, DollarSign, Home, FileCheck } from 'lucide-react';
+import { User, DollarSign, Home, FileCheck } from 'lucide-react';
 
 const DocumentsRequired = () => {
   const documentSections = [
