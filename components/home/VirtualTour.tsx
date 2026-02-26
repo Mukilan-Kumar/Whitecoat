@@ -76,7 +76,12 @@ const VirtualTour = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative aspect-video rounded-2xl overflow-hidden glass-card">
+            <a 
+              href="https://youtu.be/PCyexxpsTic?si=pXGPpKL2E_F1mSYr" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block relative aspect-video rounded-2xl overflow-hidden glass-card"
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-800 flex items-center justify-center">
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-lg rounded-full mb-4 hover:scale-110 transition-transform cursor-pointer">
@@ -85,7 +90,7 @@ const VirtualTour = () => {
                   <p className="text-white font-semibold">Watch Sample Tour</p>
                 </div>
               </div>
-            </div>
+            </a>
 
             {/* Floating elements */}
             <motion.div

@@ -48,10 +48,15 @@ const Hero = () => {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            <button className="group px-8 py-4 glass text-white rounded-full font-semibold text-lg hover:bg-white/20 transition-all flex items-center space-x-2">
+            <a
+              href="https://youtu.be/PCyexxpsTic?si=pXGPpKL2E_F1mSYr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-8 py-4 glass text-white rounded-full font-semibold text-lg hover:bg-white/20 transition-all flex items-center space-x-2"
+            >
               <Play className="w-5 h-5" />
               <span>Watch Video</span>
-            </button>
+            </a>
           </div>
         </motion.div>
 
