@@ -121,10 +121,10 @@ const FeaturedProperties = () => {
           className="text-center mt-12"
         >
           <Link
-            href="/properties"
+            href="/partners"
             className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all"
           >
-            <span>View All Properties</span>
+            <span>View All Partners</span>
             <ArrowRight className="w-5 h-5" />
           </Link>
         </motion.div>

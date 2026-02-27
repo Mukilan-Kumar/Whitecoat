@@ -41,10 +41,10 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
-              href="/properties"
+              href="/partners"
               className="group px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-white rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all flex items-center space-x-2"
             >
-              <span>Explore Properties</span>
+              <span>Explore Partners</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
 

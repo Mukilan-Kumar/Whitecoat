@@ -15,7 +15,7 @@ const VirtualTour = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
 
   const benefits = [
-    'Explore properties from anywhere in the world',
+    'Explore partners from anywhere in the world',
     '360° virtual walkthroughs',
     'Live video consultations with our team',
     'Detailed property documentation online',

@@ -47,10 +47,10 @@ const CTABanner = () => {
             </Link>
 
             <Link
-              href="/properties"
+              href="/partners"
               className="px-6 sm:px-8 py-3 sm:py-4 glass text-white rounded-full font-semibold text-base sm:text-lg hover:bg-white/20 transition-all text-center"
             >
-              Browse Properties
+              Browse Partners
             </Link>
           </div>
 
