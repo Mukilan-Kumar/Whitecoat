@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 const Stats = () => {
   const stats = [
-    { value: 500, suffix: '+', label: 'NRI Doctors Served' },
-    { value: 10, suffix: '+', label: 'Country Served' },
-    { value: 50, suffix: '+', label: 'Premium Locations' },
-    { value: 98, suffix: '%', label: 'Client Satisfaction' },
+    { value: 500, suffix: '+', label: 'NRI Doctors Served', prefix: '' },
+    { value: 10, suffix: '+', label: 'Country Served', prefix: '' },
+    { value: 50, suffix: '+', label: 'Premium Locations', prefix: '' },
+    { value: 98, suffix: '%', label: 'Client Satisfaction', prefix: '' },
   ];
 
   return (
