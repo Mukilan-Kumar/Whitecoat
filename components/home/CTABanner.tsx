@@ -67,8 +67,8 @@ const CTABanner = () => {
             </div>
             <div className="hidden sm:block h-12 w-px bg-white/20"></div>
             <div className="text-center min-w-[100px]">
-              <div className="text-2xl sm:text-3xl font-bold text-gold-400">₹200Cr+</div>
-              <div className="text-xs sm:text-sm text-gray-400 mt-1">Properties Sold</div>
+              <div className="text-2xl sm:text-3xl font-bold text-gold-400">10+</div>
+              <div className="text-xs sm:text-sm text-gray-400 mt-1">Country Served</div>
             </div>
             <div className="hidden sm:block h-12 w-px bg-white/20"></div>
             <div className="text-center min-w-[100px]">
