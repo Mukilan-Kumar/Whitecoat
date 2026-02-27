@@ -8,17 +8,17 @@ const ContactInfo = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: ['+91 98765 43210', '+91 98765 43211'],
+      details: ['+91 90032 52500'],
     },
     {
       icon: Mail,
       title: 'Email',
-      details: ['info@whitecoat.com', 'support@whitecoat.com'],
+      details: ['wcrealtyproperties@gmail.com'],
     },
     {
       icon: MapPin,
       title: 'Office',
-      details: ['Bandra West, Mumbai', 'Maharashtra, India 400050'],
+      details: ['No.92, Devadoss street, CH-40, VGN', 'Chennai 600 040'],
     },
     {
       icon: Clock,

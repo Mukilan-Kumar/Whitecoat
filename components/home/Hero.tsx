@@ -69,7 +69,7 @@ const Hero = () => {
         >
           {[
             { value: '500+', label: 'NRI Doctors Trust Us' },
-            { value: '₹200Cr+', label: 'Properties Sold' },
+            { value: '50+', label: 'Countries' },
             { value: '50+', label: 'Premium Locations' },
           ].map((stat, index) => (
             <motion.div
