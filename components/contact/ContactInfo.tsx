@@ -9,13 +9,15 @@ const ContactInfo = () => {
       icon: Phone,
       title: 'Phone',
       details: ['+91 90032 52500'],
-      isLink: false,
+      isLink: true,
+      link: 'tel:+919003252500',
     },
     {
       icon: Mail,
       title: 'Email',
       details: ['wcrealtyproperties@gmail.com'],
-      isLink: false,
+      isLink: true,
+      link: 'mailto:wcrealtyproperties@gmail.com',
     },
     {
       icon: MapPin,
