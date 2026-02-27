@@ -451,11 +451,21 @@ const PropertyDetail = ({ id }: PropertyDetailProps) => {
               <div className="space-y-4 pt-6 border-t border-gray-200">
                 <div className="flex items-center space-x-3 text-gray-700">
                   <Phone className="w-5 h-5 text-gold-600" />
-                  <span>+91 98765 43210</span>
+                  <a 
+                    href="tel:+919003252500"
+                    className="hover:text-gold-600 transition-colors"
+                  >
+                    +91 90032 52500
+                  </a>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-700">
                   <Mail className="w-5 h-5 text-gold-600" />
-                  <span>info@whitecoat.com</span>
+                  <a 
+                    href="mailto:wcrealtyproperties@gmail.com"
+                    className="hover:text-gold-600 transition-colors"
+                  >
+                    wcrealtyproperties@gmail.com
+                  </a>
                 </div>
               </div>
             </motion.div>
