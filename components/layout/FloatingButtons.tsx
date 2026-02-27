@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const FloatingButtons = () => {
   const phoneNumber = '+919003252500'; // Replace with actual phone number
   const whatsappNumber = '+919003252500'; // Replace with actual WhatsApp number
-  const whatsappMessage = 'Hello, I am interested in WhiteCoat properties';
+  const whatsappMessage = 'Hello, I am interested in WhiteCoat services';
 
   const handleCall = () => {
     window.location.href = `tel:${phoneNumber}`;

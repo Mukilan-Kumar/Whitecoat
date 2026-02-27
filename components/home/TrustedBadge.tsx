@@ -5,7 +5,7 @@ import { Shield, Award, Users, TrendingUp } from 'lucide-react';
 
 const TrustedBadge = () => {
   const badges = [
-    { icon: Shield, text: 'Verified Properties' },
+    { icon: Shield, text: 'Verified Developers' },
     { icon: Award, text: 'Premium Quality' },
     { icon: Users, text: 'Doctor Community' },
     { icon: TrendingUp, text: 'High ROI' },

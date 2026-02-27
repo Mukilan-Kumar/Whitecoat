@@ -12,8 +12,8 @@ const WhyWhiteCoat = () => {
     },
     {
       icon: Shield,
-      title: 'Verified Properties',
-      description: 'Every property is legally verified and quality-checked',
+      title: 'Verified Developers',
+      description: 'Every developer is legally verified and quality-checked',
     },
     {
       icon: Clock,

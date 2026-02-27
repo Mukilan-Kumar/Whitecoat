@@ -37,12 +37,6 @@ const LoanHero = () => {
             >
               Apply Now
             </Link>
-            <Link
-              href="/properties"
-              className="px-8 py-4 glass text-white rounded-full font-semibold text-lg hover:bg-white/20 transition-all"
-            >
-              View Properties
-            </Link>
           </div>
         </motion.div>
       </div>
