@@ -43,7 +43,7 @@ const FeaturedProperties = () => {
             Featured <span className="text-gradient">Partners</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Trusted CREDAI Chennai member developers offering exclusive deals for NRI doctors
+            Trusted developer partners offering exclusive deals for NRI doctors
           </p>
         </motion.div>
 

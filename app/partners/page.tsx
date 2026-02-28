@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Building2, ExternalLink } from 'lucide-react';
+import { Building2 } from 'lucide-react';
 import Image from 'next/image';
 
 export default function PartnersPage() {
@@ -217,23 +217,14 @@ export default function PartnersPage() {
           >
             <div className="inline-flex items-center space-x-2 mb-6 px-6 py-2 glass rounded-full text-gold-400 font-bold">
               <Building2 className="w-5 h-5" />
-              <span>CREDAI Chennai Members</span>
+              <span>Trusted Developer Partners</span>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6">
               Our <span className="text-gradient">Developer Partners</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-              We work with CREDAI Chennai&apos;s trusted real estate developers to bring you exclusive deals and premium properties
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              We work with trusted real estate developers to bring you exclusive deals and premium properties
             </p>
-            <a
-              href="https://credaichennai.in/members/current-members/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 px-6 py-3 bg-white/10 hover:bg-white/20 rounded-full transition-all"
-            >
-              <span>View Full CREDAI Member List</span>
-              <ExternalLink className="w-4 h-4" />
-            </a>
           </motion.div>
         </div>
       </div>
@@ -251,7 +242,7 @@ export default function PartnersPage() {
               Featured <span className="text-gradient">Developers</span>
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              {partners.length}+ CREDAI Chennai member developers
+              {partners.length}+ trusted developer partners
             </p>
           </motion.div>
 
