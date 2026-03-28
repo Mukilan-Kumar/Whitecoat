@@ -8,16 +8,16 @@ const ContactInfo = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: ['+91 90032 52500'],
+      details: ['+91 93602 64347'],
       isLink: true,
-      link: 'tel:+919003252500',
+      link: 'tel:+919360264347',
     },
     {
       icon: Mail,
       title: 'Email',
-      details: ['wcrealtyproperties@gmail.com'],
+      details: ['mukilan021@gmail.com'],
       isLink: true,
-      link: 'mailto:wcrealtyproperties@gmail.com',
+      link: 'mailto:mukilan021@gmail.com',
     },
     {
       icon: MapPin,
@@ -119,7 +119,7 @@ const ContactInfo = () => {
           Prefer to speak directly? Book a consultation call with our property experts.
         </p>
         <a 
-          href="tel:+919003252500"
+          href="tel:+919360264347"
           className="block w-full px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all text-center"
         >
           Book Consultation

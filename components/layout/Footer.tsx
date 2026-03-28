@@ -39,19 +39,19 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-gold-500 mt-0.5" />
                 <a 
-                  href="mailto:wcrealtyproperties@gmail.com"
+                  href="mailto:mukilan021@gmail.com"
                   className="text-gray-400 text-sm hover:text-gold-500 transition-colors"
                 >
-                  wcrealtyproperties@gmail.com
+                  mukilan021@gmail.com
                 </a>
               </li>
               <li className="flex items-start space-x-3">
                 <Phone className="w-5 h-5 text-gold-500 mt-0.5" />
                 <a 
-                  href="tel:+919003252500"
+                  href="tel:+919360264347"
                   className="text-gray-400 text-sm hover:text-gold-500 transition-colors"
                 >
-                  +91 90032 52500
+                  +91 93602 64347
                 </a>
               </li>
               <li className="flex items-start space-x-3">

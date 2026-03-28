@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import connectDB from '@/lib/mongodb';
-import Contact from '@/models/Contact';
+import { supabase } from '@/lib/supabase';
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,30 +15,43 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Connect to database and save contact
-    await connectDB();
-    const contact = await Contact.create({
-      name,
-      email,
-      phone,
-      propertyInterest,
-      message,
-      status: 'new',
-    });
+    // Save to Supabase database
+    const { data: contact, error: dbError } = await supabase
+      .from('contacts')
+      .insert([
+        {
+          name,
+          email,
+          phone,
+          property_interest: propertyInterest,
+          message,
+          status: 'new',
+        },
+      ])
+      .select()
+      .single();
 
-    // Create transporter
+    if (dbError) {
+      console.error('Database error:', dbError);
+      return NextResponse.json(
+        { error: 'Failed to save contact' },
+        { status: 500 }
+      );
+    }
+
+    // Create transporter for email
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER || 'your-email@gmail.com',
-        pass: process.env.EMAIL_PASSWORD || 'your-app-password',
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD,
       },
     });
 
-    // Email content
+    // Email to WhiteCoat (you)
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'your-email@gmail.com',
-      to: process.env.EMAIL_TO || 'info@whitecoat.com',
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_TO,
       subject: `New Property Inquiry from ${name}`,
       html: `
         <!DOCTYPE html>
@@ -72,6 +84,13 @@ export async function POST(request: NextRequest) {
                 <div class="value">${email}</div>
               </div>
               
+              ${phone ? `
+              <div class="field">
+                <div class="label">Phone:</div>
+                <div class="value">${phone}</div>
+              </div>
+              ` : ''}
+              
               ${propertyInterest ? `
               <div class="field">
                 <div class="label">Property Interest:</div>
@@ -95,12 +114,11 @@ export async function POST(request: NextRequest) {
       `,
     };
 
-    // Email to WhiteCoat (you)
     await transporter.sendMail(mailOptions);
 
     // Confirmation email to sender
     const confirmationMailOptions = {
-      from: process.env.EMAIL_USER || 'your-email@gmail.com',
+      from: process.env.EMAIL_USER,
       to: email,
       subject: 'Thank you for contacting WhiteCoat',
       html: `
@@ -134,7 +152,7 @@ export async function POST(request: NextRequest) {
                 ${propertyInterest ? `<p><strong>Property Interest:</strong> ${propertyInterest}</p>` : ''}
               </div>
               
-              <p>We aim to respond to all inquiries within <span class="highlight">24 hours</span>. If your matter is urgent, please feel free to call us directly.</p>
+              <p>We aim to respond to all inquiries within <span class="highlight">24 hours</span>. If your matter is urgent, please feel free to call us directly at +91 93602 64347.</p>
               
               <p>Best regards,<br>
               <strong>The WhiteCoat Team</strong></p>
@@ -150,20 +168,19 @@ export async function POST(request: NextRequest) {
       `,
     };
 
-    // Send confirmation email to sender
     await transporter.sendMail(confirmationMailOptions);
 
     return NextResponse.json(
-      { 
-        message: 'Email sent successfully',
-        contactId: contact._id 
+      {
+        message: 'Contact saved and emails sent successfully',
+        contactId: contact.id,
       },
       { status: 200 }
     );
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Error processing contact:', error);
     return NextResponse.json(
-      { error: 'Failed to send email' },
+      { error: 'Failed to process contact' },
       { status: 500 }
     );
   }
@@ -172,17 +189,26 @@ export async function POST(request: NextRequest) {
 // GET endpoint to retrieve contacts (for admin use)
 export async function GET(request: NextRequest) {
   try {
-    await connectDB();
-    
     const { searchParams } = new URL(request.url);
     const status = searchParams.get('status');
     const limit = parseInt(searchParams.get('limit') || '50');
-    
-    const query = status ? { status } : {};
-    const contacts = await Contact.find(query)
-      .sort({ createdAt: -1 })
+
+    let query = supabase
+      .from('contacts')
+      .select('*')
+      .order('created_at', { ascending: false })
       .limit(limit);
-    
+
+    if (status) {
+      query = query.eq('status', status);
+    }
+
+    const { data: contacts, error } = await query;
+
+    if (error) {
+      throw error;
+    }
+
     return NextResponse.json({ contacts }, { status: 200 });
   } catch (error) {
     console.error('Error fetching contacts:', error);

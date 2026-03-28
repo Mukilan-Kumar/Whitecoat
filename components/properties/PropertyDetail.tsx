@@ -452,19 +452,19 @@ const PropertyDetail = ({ id }: PropertyDetailProps) => {
                 <div className="flex items-center space-x-3 text-gray-700">
                   <Phone className="w-5 h-5 text-gold-600" />
                   <a 
-                    href="tel:+919003252500"
+                    href="tel:+919360264347"
                     className="hover:text-gold-600 transition-colors"
                   >
-                    +91 90032 52500
+                    +91 93602 64347
                   </a>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-700">
                   <Mail className="w-5 h-5 text-gold-600" />
                   <a 
-                    href="mailto:wcrealtyproperties@gmail.com"
+                    href="mailto:mukilan021@gmail.com"
                     className="hover:text-gold-600 transition-colors"
                   >
-                    wcrealtyproperties@gmail.com
+                    mukilan021@gmail.com
                   </a>
                 </div>
               </div>
