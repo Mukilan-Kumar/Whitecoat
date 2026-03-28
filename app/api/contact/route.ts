@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import connectDB from '@/lib/mongodb';
+import Contact from '@/models/Contact';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, propertyInterest, message } = body;
+    const { name, email, phone, propertyInterest, message } = body;
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -14,8 +16,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Connect to database and save contact
+    await connectDB();
+    const contact = await Contact.create({
+      name,
+      email,
+      phone,
+      propertyInterest,
+      message,
+      status: 'new',
+    });
+
     // Create transporter
-    // NOTE: Replace these with your actual Gmail credentials or use environment variables
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -142,13 +154,40 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail(confirmationMailOptions);
 
     return NextResponse.json(
-      { message: 'Email sent successfully' },
+      { 
+        message: 'Email sent successfully',
+        contactId: contact._id 
+      },
       { status: 200 }
     );
   } catch (error) {
     console.error('Error sending email:', error);
     return NextResponse.json(
       { error: 'Failed to send email' },
+      { status: 500 }
+    );
+  }
+}
+
+// GET endpoint to retrieve contacts (for admin use)
+export async function GET(request: NextRequest) {
+  try {
+    await connectDB();
+    
+    const { searchParams } = new URL(request.url);
+    const status = searchParams.get('status');
+    const limit = parseInt(searchParams.get('limit') || '50');
+    
+    const query = status ? { status } : {};
+    const contacts = await Contact.find(query)
+      .sort({ createdAt: -1 })
+      .limit(limit);
+    
+    return NextResponse.json({ contacts }, { status: 200 });
+  } catch (error) {
+    console.error('Error fetching contacts:', error);
+    return NextResponse.json(
+      { error: 'Failed to fetch contacts' },
       { status: 500 }
     );
   }
